@@ -4,7 +4,7 @@ Summary(pl):	Program pokazuje ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	4.05
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
@@ -16,13 +16,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 linux_logo shows a logo in ASCII with some system information.
 
+%description -l es
+Este paquete contiene el tux, pingüino mascota del Linux.
+
 %description -l pl
 linux_logo pokazuje logo Linuksa w ASCII wraz z pewnymi informacjami o
 systemie (wersja kernela, rodzaj procesora itp.). ¦wietnie nadaje siê
 jako generator ekranów powitalnych przed zalogowaniem siê u¿ytkownika.
-
-%description -l es
-Este paquete contiene el tux, pingüino mascota del Linux.
 
 %description -l pt_BR
 Este pacote contém o tux, pingüim mascote do Linux.
@@ -33,7 +33,8 @@ Este pacote contém o tux, pingüim mascote do Linux.
 %patch1 -p1
 
 %build
-%{__make} C_OPTS="%{rpmcflags} -DLINUX_ANSI -I./libsysinfo"
+%{__make} C_OPTS="%{rpmcflags} -DLINUX_ANSI -I./libsysinfo" \
+	C_FLAGS="%{rpmcflags} -Wall -I. -I.. -I../include"
 
 %install
 rm -rf $RPM_BUILD_ROOT
