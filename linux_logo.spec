@@ -1,5 +1,7 @@
 Summary:	Shows nice ascii logo
+Summary(es):	Tux en ASCII (Pingüino del Linux)
 Summary(pl):	Program pokazuje ³adne logo Linuxa w ASCII
+Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	3.9b5
 Release:	1
@@ -20,6 +22,12 @@ linux_logo shows a logo in ASCII with some system information.
 linux_logo pokazuje logo Linuxa w ASCII wraz z pewnymi informacjami o
 systemie (wersja kernela, rodzaj procesora itp.) ¦wietnie nadaje siê
 jako generator ekranów powitalnych przed zalogowaniem siê u¿ytkownika.
+
+%description -l es
+Este paquete contiene el tux, pingüino mascota del Linux.
+
+%description -l pt_BR
+Este pacote contém o tux, pingüim mascote do Linux.
 
 %prep
 %setup -q
