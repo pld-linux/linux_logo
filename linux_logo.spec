@@ -3,16 +3,16 @@ Summary(es):	Tux en ASCII (Pingüino del Linux)
 Summary(pl):	Program pokazuj±cy ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
-Version:	4.07
-Release:	2
+Version:	4.09
+Release:	1
 License:	GPL
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
-# Source0-md5:	9c6925cee70c6536995a0c64c790c1b5
+# Source0-md5:	ba970437da602e1dbb4c244303793cd6
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
-Patch2:		%{name}-line_end_fix.patch
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/
+BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,10 +33,10 @@ Este pacote contém o tux, pingüim mascote do Linux.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	C_OPTS="%{rpmcflags} -DLINUX_ANSI -I./libsysinfo" \
 	C_FLAGS="%{rpmcflags} -Wall -I. -I.. -I../include"
 
@@ -48,10 +48,15 @@ install linux_logo $RPM_BUILD_ROOT%{_bindir}
 gzip -d linux_logo.1.gz
 install	linux_logo.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
+%{__make} -C po install \
+	INSTALLDIR=$RPM_BUILD_ROOT%{_datadir}/locale
+
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ANNOUNCE.logo BUGS CHANGES LINUX_LOGO.FAQ README
 %doc README.CUSTOM_LOGOS TODO USAGE
