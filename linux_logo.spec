@@ -3,10 +3,10 @@ Summary(pl):	Program pokazuje ³adne logo Linuxa w ASCII
 Name:		linux_logo
 Version:	3.05
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		Utilities
 Group(pl):	Narzêdzia
-Source:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/%{name}-%{version}.tar.gz
+Source0:	http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 Patch0:		linux_logo-PLDlogo.patch
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -15,13 +15,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 linux_logo shows a logo in ASCII with some system information.
 
 %description -l pl
-linux_logo pokazuje logo Linuxa w ASCII wraz z pewnymi informacjami
-o systemie (wersja kernela, rodzaj procesora itp.)
-¦wietnie nadaje siê jako generator ekranów powitalnych przed zalogowaniem
-siê u¿ytkownika.
+linux_logo pokazuje logo Linuxa w ASCII wraz z pewnymi informacjami o
+systemie (wersja kernela, rodzaj procesora itp.) ¦wietnie nadaje siê jako
+generator ekranów powitalnych przed zalogowaniem siê u¿ytkownika.
 
 %prep
-%setup -q -n %{name}-3.05
+%setup -q
 %patch0 -p1
 
 %build
@@ -29,8 +28,7 @@ make C_OPTS="$RPM_OPT_FLAGS -DLINUX_ANSI"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 gzip -9nf linux_logo.1 BUGS CHANGES README TODO USAGE.FAQ
 
