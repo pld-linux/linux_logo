@@ -3,7 +3,7 @@ Summary(es):	Tux en ASCII (Pingüino del Linux)
 Summary(pl):	Program pokazuje ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
-Version:	4.04
+Version:	4.05
 Release:	1
 License:	GPL
 Group:		Applications/Terminal
