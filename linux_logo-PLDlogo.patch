@@ -1,6 +1,6 @@
 diff -Nur linux_logo-3.05/banner_logos/pld_ascii_banner.h linux_logo-3.05.new/banner_logos/pld_ascii_banner.h
 --- linux_logo-3.05/banner_logos/pld_ascii_banner.h	Thu Jan  1 01:00:00 1970
-+++ linux_logo-3.05.new/banner_logos/pld_ascii_banner.h	Wed Apr 26 11:36:06 2000
++++ linux_logo-3.05.new/banner_logos/pld_ascii_banner.h	Thu Apr 27 00:29:43 2000
 @@ -0,0 +1,15 @@
 +/* by Michal Zawalich <michuz@pld.org.pl> */
 +const char ascii_banner2[][400]={
@@ -13,14 +13,14 @@ diff -Nur linux_logo-3.05/banner_logos/pld_ascii_banner.h linux_logo-3.05.new/ba
 +"%         Q#      #Q           |   |        |         /  |          /'         ",
 +"%        QQQQ#   #QQQ          |___|        |________/   |________/'           ",
 +"%         QQQ####QQQ                                                           ",
-+"%               ### ### ## ## ##    ** ##   ## ### ## ## ## ##  ##             ",
-+"%              ##   ### ## ## ##   **  ##   ## ### ## ## ##   ##               ",
-+"%              #### ## ###  ####  **   #### ## ## ###  #### ##  ##             "
++"%                                                                              ",
++"%                         Polish(ed) Linux Distribution                        ",
++"%                        Homepage: http://www.pld.org.pl/                      "
 +};
 \ No newline at end of file
 diff -Nur linux_logo-3.05/banner_logos/pld_banner.h linux_logo-3.05.new/banner_logos/pld_banner.h
 --- linux_logo-3.05/banner_logos/pld_banner.h	Thu Jan  1 01:00:00 1970
-+++ linux_logo-3.05.new/banner_logos/pld_banner.h	Wed Apr 26 11:14:14 2000
++++ linux_logo-3.05.new/banner_logos/pld_banner.h	Thu Apr 27 00:39:18 2000
 @@ -0,0 +1,15 @@
 +/* by Michal Zawalich <michuz@pld.org.pl> */
 +const char banner2[][400]={
@@ -33,13 +33,13 @@ diff -Nur linux_logo-3.05/banner_logos/pld_banner.h linux_logo-3.05.new/banner_l
 +"[0;0;30;36m          Q[0;0;30;32m#      #[0;0;30;36mQ           |   |        |         /  |          /'         [1;37;40m",
 +"[0;0;30;36m         QQQQ[0;0;30;32m#   #[0;0;30;36mQQQ          |___|        |________/   |________/'           [1;37;40m",
 +"[0;0;30;36m          QQQ[0;0;30;32m####[0;0;30;36mQQQ                                                           [1;37;40m",
-+"[0;0;30;32m                ### ### ## ## ##[0;0;30;36m   **[0;0;30;32m ##   ## ### ## ## ## ##  ##             [1;37;40m",
-+"[0;0;30;32m               ##   ### ## ## ##[0;0;30;36m  ** [0;0;30;32m ##   ## ### ## ## ##   ##               [1;37;40m",
-+"[0;0;30;32m               #### ## ###  ####[0;0;30;36m **  [0;0;30;32m #### ## ## ###  #### ##  ##             [1;37;40m"
++"[0;0;30;32m                                                                              [1;37;40m",
++"[0;0;30;36m                         P[0;0;30;32molish(ed) [0;0;30;36mL[0;0;30;32minux [0;0;30;36mD[0;0;30;32mistribution                        [1;37;40m",
++"[0;0;30;32m                        Homepage: http://www.pld.org.pl/                      [1;37;40m"
 +};
 diff -Nur linux_logo-3.05/defaults.h linux_logo-3.05.new/defaults.h
 --- linux_logo-3.05/defaults.h	Wed Mar  1 01:16:13 2000
-+++ linux_logo-3.05.new/defaults.h	Wed Apr 26 11:17:52 2000
++++ linux_logo-3.05.new/defaults.h	Thu Apr 27 00:19:34 2000
 @@ -12,6 +12,9 @@
  /* If a 0 is picked, classic mode (which some people prefer)will be default.*\
  \* You can over-ride this with the -banner and -classic switches.           */
@@ -62,7 +62,7 @@ diff -Nur linux_logo-3.05/defaults.h linux_logo-3.05.new/defaults.h
 +#include "./banner_logos/pld_banner.h"
 diff -Nur linux_logo-3.05/getsysinfo.h linux_logo-3.05.new/getsysinfo.h
 --- linux_logo-3.05/getsysinfo.h	Tue Jun 22 17:35:07 1999
-+++ linux_logo-3.05.new/getsysinfo.h	Wed Apr 26 11:15:49 2000
++++ linux_logo-3.05.new/getsysinfo.h	Thu Apr 27 00:19:34 2000
 @@ -24,6 +24,7 @@
         int offset;
         int plain_ascii;
@@ -73,7 +73,7 @@ diff -Nur linux_logo-3.05/getsysinfo.h linux_logo-3.05.new/getsysinfo.h
         int show_load;
 diff -Nur linux_logo-3.05/linux_logo.c linux_logo-3.05.new/linux_logo.c
 --- linux_logo-3.05/linux_logo.c	Thu Jan 13 19:44:36 2000
-+++ linux_logo-3.05.new/linux_logo.c	Wed Apr 26 11:33:49 2000
++++ linux_logo-3.05.new/linux_logo.c	Thu Apr 27 00:35:09 2000
 @@ -48,6 +48,7 @@
      logo_info->offset=DEFAULT_OFFSET;                /* Defaults to 0    */
      logo_info->plain_ascii=DEFAULT_PLAIN_ASCII;      /* Defaults to No   */
@@ -82,12 +82,16 @@ diff -Nur linux_logo-3.05/linux_logo.c linux_logo-3.05.new/linux_logo.c
      logo_info->wipe_screen=DEFAULT_WIPE_SCREEN;      /* Defaults to No   */
      logo_info->show_uptime=DEFAULT_SHOW_UPTIME;      /* Defaults to No   */
      logo_info->show_load=DEFAULT_SHOW_LOAD;          /* Defaults to No   */
-@@ -153,7 +154,9 @@
+@@ -151,9 +152,11 @@
+ 	   "[-l]\n"
+ 	   "                    [-n] [-o num] [-p] [-rX] [-s] [-t str] [-u] "
  	   "[-v] [-w Num]\n"
-            "                    [-x] [-y] [-F format]\n",binname);
+-           "                    [-x] [-y] [-F format]\n",binname);
++           "                    [-x] [-y] [-F format] [-A] [-B]\n",binname);
      printf("         [-a]     -- Display logo as ascii only monochrome\n");
+-    printf("         [-b]     -- New default Banner Logo!\n");
 +    printf("         [-A]     -- PLD ascii logo\n");
-     printf("         [-b]     -- New default Banner Logo!\n");
++    printf("         [-b]     -- New Banner Logo!\n");
 +    printf("         [-B]     -- PLD banner logo (default)\n");
      printf("         [-c]     -- The Old [classic] linux_logo look\n");
      printf("         [-d]     -- disable \"prettying\" of output\n");
