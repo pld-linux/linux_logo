@@ -1,14 +1,14 @@
 Summary:	Shows nice ascii logo
 Summary(pl):	Program pokazuje ³adne logo Linuxa w ASCII
 Name:		linux_logo
-Version:	3.04
+Version:	3.05
 Release:	1
 Copyright:	GPL
 Group:		Utilities
 Group(pl):	Narzêdzia
-URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
-Source0:	%{name}-%{version}.tar.gz
+Source:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 Patch0:		linux_logo-PLDlogo.patch
+URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
