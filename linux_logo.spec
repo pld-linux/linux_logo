@@ -11,6 +11,7 @@ Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.g
 # Source0-md5:	9c6925cee70c6536995a0c64c790c1b5
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
+Patch2:		%{name}-line_end_fix.patch
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,6 +33,7 @@ Este pacote contém o tux, pingüim mascote do Linux.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} C_OPTS="%{rpmcflags} -DLINUX_ANSI -I./libsysinfo" \
