@@ -8,7 +8,7 @@ Group:		Utilities
 Group(pl):	Narzêdzia
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
 Source:		%{name}-%{version}.tar.gz
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 linux_logo shows a logo in ASCII with some system information.
