@@ -24,7 +24,7 @@ generator ekranów powitalnych przed zalogowaniem siê u¿ytkownika.
 %patch0 -p1
 
 %build
-make C_OPTS="$RPM_OPT_FLAGS -DLINUX_ANSI"
+%{__make} C_OPTS="$RPM_OPT_FLAGS -DLINUX_ANSI"
 
 %install
 rm -rf $RPM_BUILD_ROOT
