@@ -7,8 +7,6 @@ Version:	4.01
 Release:	1
 License:	GPL
 Group:		Applications/Terminal
-Group(de):	Applikationen/Terminal
-Group(pl):	Aplikacje/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
