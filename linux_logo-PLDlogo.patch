@@ -1,0 +1,52 @@
+diff -Nur linux_logo-3.05/banner_logos/pld_ascii_banner.h linux_logo-3.05.new/banner_logos/pld_ascii_banner.h
+--- linux_logo-3.05/banner_logos/pld_ascii_banner.h	Thu Jan  1 01:00:00 1970
++++ linux_logo-3.05.new/banner_logos/pld_ascii_banner.h	Wed Apr 26 02:31:23 2000
+@@ -0,0 +1,15 @@
++/* by Michal Zawalich <michuz@pld.org.pl> */
++const char ascii_banner[][400]={
++"%                               _______      ___          _______              ",
++"%            ###               /       `\\   |   |        /       `\\            ",
++"%           #o#o#             /______    |  |   |       /______    `\\          ",
++"%           # V #              ,----_)   |  |   |        ,---. `\\    |         ",
++"%          #     ##            |         /  |   |        |   |   |   |         ",
++"%         #       ##           |    ___/'   |   |______  |   |__/'   |         ",
++"%         Q#      #Q           |   |        |         /  |          /'         ",
++"%        QQQQ#   #QQQ          |___|        |________/   |________/'           ",
++"%         QQQ####QQQ                                                           ",
++"%               ### ### ## ## ##    ** ##   ## ### ## ## ## ##  ##             ",
++"%              ##   ### ## ## ##   **  ##   ## ### ## ## ##   ##               ",
++"%              #### ## ###  ####  **   #### ## ## ###  #### ##  ##             "
++};
+\ No newline at end of file
+diff -Nur linux_logo-3.05/banner_logos/pld_banner.h linux_logo-3.05.new/banner_logos/pld_banner.h
+--- linux_logo-3.05/banner_logos/pld_banner.h	Thu Jan  1 01:00:00 1970
++++ linux_logo-3.05.new/banner_logos/pld_banner.h	Wed Apr 26 02:30:39 2000
+@@ -0,0 +1,15 @@
++/* by Michal Zawalich <michuz@pld.org.pl> */
++const char banner[][400]={
++"[0;0;30;36m                                _______      ___          _______              [1;37;40m",
++"[0;0;30;32m             ###[0;0;30;36m               /       `\\   |   |        /       `\\            [1;37;40m",
++"[0;0;30;32m            #[0;1;30;39mo[0;0;30;32m#[0;1;30;39mo[0;0;30;32m#[0;0;30;36m             /______    |  |   |       /______    `\\          [1;37;40m",
++"[0;0;30;32m            # [0;0;30;36mV [0;0;30;32m#[0;0;30;36m              .----_)   |  |   |        .---. `\\    |         [1;37;40m",
++"[0;0;30;32m           #     ##[0;0;30;36m            |         /  |   |        |   |   |   |         [1;37;40m",
++"[0;0;30;32m          #       ##[0;0;30;36m           |    ___/'   |   |______  |   |__/'   |         [1;37;40m",
++"[0;0;30;36m          Q[0;0;30;32m#      #[0;0;30;36mQ           |   |        |         /  |          /'         [1;37;40m",
++"[0;0;30;36m         QQQQ[0;0;30;32m#   #[0;0;30;36mQQQ          |___|        |________/   |________/'           [1;37;40m",
++"[0;0;30;36m          QQQ[0;0;30;32m####[0;0;30;36mQQQ                                                           [1;37;40m",
++"[0;0;30;32m                ### ### ## ## ##[0;0;30;36m   **[0;0;30;32m ##   ## ### ## ## ## ##  ##             [1;37;40m",
++"[0;0;30;32m               ##   ### ## ## ##[0;0;30;36m  ** [0;0;30;32m ##   ## ### ## ## ##   ##               [1;37;40m",
++"[0;0;30;32m               #### ## ###  ####[0;0;30;36m **  [0;0;30;32m #### ## ## ###  #### ##  ##             [1;37;40m"
++};
+diff -Nur linux_logo-3.05/defaults.h linux_logo-3.05.new/defaults.h
+--- linux_logo-3.05/defaults.h	Wed Mar  1 01:16:13 2000
++++ linux_logo-3.05.new/defaults.h	Wed Apr 26 02:32:57 2000
+@@ -107,7 +107,7 @@
+ #include "./classic_logos/ascii_penguin.h"
+ 
+ /* This file contains the ascii version of the banner logo */
+-#include "./banner_logos/ascii_banner.h"
++#include "./banner_logos/pld_ascii_banner.h"
+ 
+ /* This file contains the regular version of the banner logo */
+-#include "./banner_logos/banner.h"
++#include "./banner_logos/pld_banner.h"
