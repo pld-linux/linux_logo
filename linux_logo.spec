@@ -11,7 +11,7 @@ Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.g
 # Source0-md5:	ba970437da602e1dbb4c244303793cd6
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
-URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/
+URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
