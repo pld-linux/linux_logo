@@ -8,7 +8,7 @@ Group:		Utilities
 Group(pl):	U¿ytki
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
 Source:		%{name}-%{version}.tar.gz
-Buildroot:	/tmp/%{name}-%{version}-root
+Buildroot:	/tmp/buildroot-%{name}-%{version}
 
 %description
 linux_logo shows a logo in ASCII with some system information.
