@@ -20,7 +20,7 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 +
 +SYSINFO_POSITION bottom
 +
-+DESCRIPTION_STRING PLD GNU/Linux banner
++DESCRIPTION_STRING PLD Linux banner
 +
 +
 +BEGIN_ASCII_LOGO
@@ -34,7 +34,7 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 +        QQQQ#   #QQQ          |___|        |________/   |________/'           
 +         QQQ####QQQ                                                           
 +                                                                              
-+                         Polish(ed) Linux Distribution                        
++                             PLD Linux Distribution                           
 +                        Homepage: http://www.pld.org.pl/                      
 +END_ASCII_LOGO
 +
@@ -50,7 +50,7 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 +[0;0;30;36m         QQQQ[0;0;30;32m#   #[0;0;30;36mQQQ          |___|        |________/   |________/'           [1;37;40m
 +[0;0;30;36m          QQQ[0;0;30;32m####[0;0;30;36mQQQ                                                           [1;37;40m
 +[0;0;30;32m                                                                              [1;37;40m
-+[0;0;30;36m                         P[0;0;30;32molish(ed) [0;0;30;36mL[0;0;30;32minux [0;0;30;36mD[0;0;30;32mistribution                        [1;37;40m
++[0;0;30;36m                             P[0;0;30;32mLD [0;0;30;36mL[0;0;30;32minux [0;0;30;36mD[0;0;30;32mistribution                           [1;37;40m
 +[0;0;30;32m                        Homepage: http://www.pld.org.pl/                      [1;37;40m
 +END_LOGO
 +

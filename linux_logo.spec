@@ -1,10 +1,10 @@
 Summary:	Shows nice ascii logo
 Summary(es):	Tux en ASCII (Pingüino del Linux)
-Summary(pl):	Program pokazuje ³adne logo Linuxa w ASCII
+Summary(pl):	Program pokazuje ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	3.9b5
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Terminal
 Group(de):	Applikationen/Terminal
@@ -12,15 +12,15 @@ Group(pl):	Aplikacje/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
-URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
+URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 linux_logo shows a logo in ASCII with some system information.
 
 %description -l pl
-linux_logo pokazuje logo Linuxa w ASCII wraz z pewnymi informacjami o
-systemie (wersja kernela, rodzaj procesora itp.) ¦wietnie nadaje siê
+linux_logo pokazuje logo Linuksa w ASCII wraz z pewnymi informacjami o
+systemie (wersja kernela, rodzaj procesora itp.). ¦wietnie nadaje siê
 jako generator ekranów powitalnych przed zalogowaniem siê u¿ytkownika.
 
 %description -l es
