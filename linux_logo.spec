@@ -4,7 +4,7 @@ Summary(pl):	Program pokazuje ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	4.01
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
@@ -41,7 +41,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 install linux_logo $RPM_BUILD_ROOT%{_bindir}
 gzip -d linux_logo.1.gz
-install	linux_logo $RPM_BUILD_ROOT%{_mandir}/man1
+install	linux_logo.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 gzip -9nf ANNOUNCE.logo BUGS CHANGES LINUX_LOGO.FAQ README \
 	README.CUSTOM_LOGOS TODO USAGE
