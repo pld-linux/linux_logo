@@ -2,13 +2,13 @@ Summary:	Shows nice ascii logo
 Summary(pl):	Program pokazuje ³adne logo Linuxa w ASCII
 Name:		linux_logo
 Version:	3.0b1
-Release:	1d
+Release:	2
 Copyright:	GPL
 Group:		Utilities
-Group(pl):	U¿ytki
+Group(pl):	Narzêdzia
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo
 Source:		%{name}-%{version}.tar.gz
-Buildroot:	/tmp/buildroot-%{name}-%{version}
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 linux_logo shows a logo in ASCII with some system information.
@@ -27,27 +27,33 @@ make C_OPTS="$RPM_OPT_FLAGS -DLINUX_ANSI"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT/usr/bin
 install -d $RPM_BUILD_ROOT/usr/man/man1
 
-bzip2 -9 linux_logo.1 BUGS CHANGES README TODO USAGE.FAQ
+gzip -9nf linux_logo.1 BUGS CHANGES README TODO USAGE.FAQ
 
-install -s	linux_logo $RPM_BUILD_ROOT/usr/bin
-install		linux_logo.1.bz2 $RPM_BUILD_ROOT/usr/man/man1
+install -s linux_logo $RPM_BUILD_ROOT/usr/bin
+install	   linux_logo.1.gz $RPM_BUILD_ROOT/usr/man/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BUGS.bz2 CHANGES.bz2 
-%doc README.bz2 USAGE.FAQ.bz2
+%doc BUGS.gz CHANGES.gz README.gz USAGE.FAQ.gz TODO.gz
 
-%attr(644,root, man) /usr/man/man1/*
 %attr(755,root,root) /usr/bin/*
+/usr/man/man1/*
 
 %changelog
+* Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [3.0b1-2]
+- sloted BuildRoot into PLD standard
+- fixed Group(pl)
+- gzipping instead bzipping
+- added missing TODO
+- removed man group from man page
+
 * Fri Jan 22 1999 Pawe³ Gajda <pagaj@shadow.eu.org>
   [3.0b1-1d]
 - first rpm for PLD
