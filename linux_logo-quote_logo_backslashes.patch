@@ -1,0 +1,81 @@
+diff -urN linux_logo-3.9b5.orig/linux_logo.c linux_logo-3.9b5/linux_logo.c
+--- linux_logo-3.9b5.orig/linux_logo.c	Mon Oct 29 00:16:28 2001
++++ linux_logo-3.9b5/linux_logo.c	Tue Jan 22 20:36:07 2002
+@@ -195,6 +195,7 @@
+     settings->display_sysinfo_only=0;
+     settings->display_usertext=0;
+     settings->custom_format=0;
++    settings->quote_logo_backslashes=0;             /* Defaults to No   */
+     settings->user_text = NULL;  /* Change this and display_usertext to *\
+                                  \*        have a default message       */
+     settings->format=NULL;
+@@ -234,12 +235,14 @@
+ 
+ 
+ 
+-char *print_line(char *string)
++char *print_line(char *string, struct linux_logo_info_type *settings)
+ {
+ 
+     char *temp_st=string;
+ 
+     while ((*temp_st!='\n') && (*temp_st!='\0')) {
++       if('\\' == *temp_st && settings->quote_logo_backslashes)
++         putchar('\\');
+        putchar(*temp_st);
+        temp_st++;
+     }
+@@ -524,7 +527,7 @@
+        if (settings->banner_mode) { /* Banner mode */
+           for(i=0;i<ysize;i++) {
+              shift_right((settings->width-80)/2,settings->plain_ascii);
+-	     string_point=print_line(string_point);
++	     string_point=print_line(string_point, settings);
+              printf("\n");
+ 	  }
+           if (!settings->display_logo_only) printf("\n");
+@@ -541,14 +544,14 @@
+   
+ 	  for(i=0;i<7;i++) {
+              shift_right(settings->offset,settings->plain_ascii);
+-             string_point=print_line(string_point);
++             string_point=print_line(string_point, settings);
+ 	     printf("\n"); 
+ 	  }
+ 
+              /* The next lines can have cpuinfo after them */
+           for(i=7;i<ysize;i++) {
+              shift_right(settings->offset,settings->plain_ascii);
+-             string_point=print_line(string_point);
++             string_point=print_line(string_point, settings);
+              shift_right(2,settings->plain_ascii);
+              if (print_sysinfo(i-7,temp_string,settings)!=1) {
+ 	        if (!settings->plain_ascii) ansi_print("^[[1;37;40m");
+@@ -727,7 +730,7 @@
+              /*******************************************************/
+        
+        while ((c = getopt (*custom_argc, custom_argv,"D:F:L:"
+-			           "a::b::c::de:fghilno:pst:uvw:y"))!=-1) {
++			           "a::b::c::de:fghilno:pqst:uvw:y"))!=-1) {
+           switch (c) {
+ 	     case 'a': settings.plain_ascii=1; break;
+ 	     case 'b': settings.banner_mode=1; break;
+@@ -801,6 +804,7 @@
+ 	               if ( endptr == optarg ) help_message(argv[0], 1);
+ 	               break;
+ 	     case 'p': settings.preserve_xy=1; break;
++	     case 'q': settings.quote_logo_backslashes=1; break;
+ 	     case 's': settings.skip_bogomips=1; break;
+ 	     case 't': 
+ 	               settings.display_usertext=1;
+diff -urN linux_logo-3.9b5.orig/linux_logo.h linux_logo-3.9b5/linux_logo.h
+--- linux_logo-3.9b5.orig/linux_logo.h	Thu Apr  5 00:23:27 2001
++++ linux_logo-3.9b5/linux_logo.h	Tue Jan 22 20:25:45 2002
+@@ -15,6 +15,7 @@
+        int display_usertext;
+        int custom_format;
+        int pretty_output;
++       int quote_logo_backslashes;
+        char *user_text;
+        char *format;
+ };
