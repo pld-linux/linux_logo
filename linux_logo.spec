@@ -4,10 +4,11 @@ Summary(pl):	Program pokazuje ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	4.05
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
+# Source0-md5:	9c6925cee70c6536995a0c64c790c1b5
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
 URL:		http://www.glue.umd.edu/~weave/wam/vmwprod/linux_logo/
