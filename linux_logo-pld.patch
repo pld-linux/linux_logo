@@ -15,7 +15,7 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 --- linux_logo-3.9b2.orig/logos/distributions/pld.logo	Thu Jan  1 01:00:00 1970
 +++ linux_logo-3.9b2/logos/distributions/pld.logo	Mon Mar 26 20:46:50 2001
 @@ -0,0 +1,39 @@
-+# PLD logo by Michal Zawalich <michuz@pld.org.pl>
++# PLD logo by Michal Zawalich <michuz@pld-linux.org>
 +
 +
 +SYSINFO_POSITION bottom
@@ -35,7 +35,7 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 +         QQQ####QQQ                                                           
 +                                                                              
 +                             PLD Linux Distribution                           
-+                        Homepage: http://www.pld.org.pl/                      
++                        Homepage: http://www.pld-linux.org/                      
 +END_ASCII_LOGO
 +
 +
@@ -51,6 +51,6 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 +[0;0;30;36m          QQQ[0;0;30;32m####[0;0;30;36mQQQ                                                           [1;37;40m
 +[0;0;30;32m                                                                              [1;37;40m
 +[0;0;30;36m                             P[0;0;30;32mLD [0;0;30;36mL[0;0;30;32minux [0;0;30;36mD[0;0;30;32mistribution                           [1;37;40m
-+[0;0;30;32m                        Homepage: http://www.pld.org.pl/                      [1;37;40m
++[0;0;30;32m                        Homepage: http://www.pld-linux.org/                      [1;37;40m
 +END_LOGO
 +
