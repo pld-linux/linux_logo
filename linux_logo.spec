@@ -44,16 +44,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-
-%changelog
-* Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [3.0b1-2]
-- sloted BuildRoot into PLD standard
-- fixed Group(pl)
-- gzipping instead bzipping
-- added missing TODO
-- removed man group from man page
-
-* Fri Jan 22 1999 Pawe³ Gajda <pagaj@shadow.eu.org>
-  [3.0b1-1d]
-- first rpm for PLD
