@@ -28,12 +28,12 @@ make C_OPTS="$RPM_OPT_FLAGS -DLINUX_ANSI"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/bin
-install -d $RPM_BUILD_ROOT/usr/man/man1
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 gzip -9nf linux_logo.1 BUGS CHANGES README TODO USAGE.FAQ
 
 install -s linux_logo $RPM_BUILD_ROOT/usr/bin
-install	   linux_logo.1.gz $RPM_BUILD_ROOT/usr/man/man1
+install	   linux_logo.1.gz $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS.gz CHANGES.gz README.gz USAGE.FAQ.gz TODO.gz
 
 %attr(755,root,root) /usr/bin/*
-/usr/man/man1/*
+%{_mandir}/man1/*
 
 %changelog
 * Sun Mar 14 1999 Micha³ Kuratczyk <kura@pld.org.pl>
