@@ -34,3 +34,48 @@ diff -u linux_logo-4.09/po.orig/pt_BR.po linux_logo-4.09/po/pt_BR.po
  
  #: ../linux_logo.c:38
  msgid "Zero"
+--- linux_logo-4.13/po/pl.po.orig	2002-03-12 02:19:18.000000000 +0100
++++ linux_logo-4.13/po/pl.po	2006-02-05 21:32:18.672178750 +0100
+@@ -4,11 +4,11 @@
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: 4.01\n"
+-"POT-Creation-Date: 2002-02-19 00:50+0100\n"
+-"PO-Revision-Date: 2002-02-18 19:14GMT\n"
++"Project-Id-Version: 4.13\n"
++"POT-Creation-Date: 2006-02-05 21:12+0100\n"
++"PO-Revision-Date: 2006-02-05 21:30+0100\n"
+ "Last-Translator: Patryk ¦ciborek <scibi@inetia.pl>\n"
+-"Language-Team: Polski <pl@li.org>\n"
++"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=iso-8859-2\n"
+ "Content-Transfer-Encoding: 8bit\n"
+@@ -93,5 +93,14 @@
+ "³±cznie #B bogomips\n"
+ "#H\n"
+ 
++#. Plural.  With the coming of i18n you really can't assume plurals can
++#. be made by adding a string to the end.  Hopefully this can fix it for
++#. most languages.  If they require significant word-order changes then
++#. we'll have even more problems
++#: ../defaults.h:19
++msgid "Processor"
++msgstr "procesor"
++
++#: ../defaults.h:20
+ msgid "Processors"
+-msgstr "Procesory"
++msgstr "procesory"
+--- linux_logo-4.13/linux_logo.c.orig	2006-02-05 21:32:44.005762000 +0100
++++ linux_logo-4.13/linux_logo.c	2006-02-05 21:50:07.242960250 +0100
+@@ -619,7 +619,7 @@
+        /* i18n */
+     setlocale(LC_ALL, "");
+     textdomain("linux_logo");
+-    bindtextdomain("linux_logo", "/usr/lib/locale");
++    bindtextdomain("linux_logo", "/usr/share/locale");
+ #endif   
+        /* Set some defaults */
+     setup_info(&settings); 
