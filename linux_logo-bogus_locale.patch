@@ -1,11 +1,11 @@
---- linux_logo-4.09/po/Makefile~	Sat Jul 24 00:03:07 2004
-+++ linux_logo-4.09/po/Makefile	Sat Jul 24 00:03:07 2004
+--- linux_logo-4.14/po/Makefile.orig	2006-07-20 18:48:35.000000000 +0200
++++ linux_logo-4.14/po/Makefile	2006-09-17 01:25:57.141347250 +0200
 @@ -3,7 +3,7 @@
  INSTALLDIR=/usr/lib/locale
  PACKAGE = linux_logo
  
--CATALOGS = de.mo dk.mo es.mo fr.mo nb.mo nl.mo it.mo pl.mo pt_BR.mo ru.mo ua.mo zh_TW.mo
-+CATALOGS = de.mo da.mo es.mo fr.mo nb.mo nl.mo it.mo pl.mo pt_BR.mo ru.mo uk.mo zh_TW.mo
+-CATALOGS = da.mo de.mo es.mo fr.mo nb.mo nl.mo it.mo pl.mo pt_BR.mo ru.mo ua.mo zh_TW.mo
++CATALOGS = da.mo de.mo es.mo fr.mo nb.mo nl.mo it.mo pl.mo pt_BR.mo ru.mo uk.mo zh_TW.mo
  
  POTFILES= ../*.c ../*.h
  
