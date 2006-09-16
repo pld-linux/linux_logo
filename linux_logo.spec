@@ -3,12 +3,12 @@ Summary(es):	Tux en ASCII (Pingüino del Linux)
 Summary(pl):	Program pokazuj±cy ³adne logo Linuksa w ASCII
 Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
-Version:	4.13
+Version:	4.14
 Release:	1
 License:	GPL
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
-# Source0-md5:	17af1e478ea9ac7dbcffd2e0a53aa5a6
+# Source0-md5:	5eeccebefff7416698dcbaebbb19cb87
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
 Patch2:		%{name}-bogus_locale.patch
@@ -38,7 +38,6 @@ Este pacote contém o tux, pingüim mascote do Linux.
 %patch2 -p1
 %patch3 -p1
 
-mv -f po/{dk,da}.po
 mv -f po/{ua,uk}.po
 
 %build
