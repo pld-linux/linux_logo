@@ -1,7 +1,7 @@
 Summary:	Program that shows nice ascii logo
-Summary(es):	Tux en ASCII (Pingüino del Linux)
-Summary(pl):	Program pokazuj±cy ³adne logo Linuksa w ASCII
-Summary(pt_BR):	Tux em ASCII (Pingüim do Linux)
+Summary(es.UTF-8):   Tux en ASCII (PingÃ¼ino del Linux)
+Summary(pl.UTF-8):   Program pokazujÄ…cy Å‚adne logo Linuksa w ASCII
+Summary(pt_BR.UTF-8):   Tux em ASCII (PingÃ¼im do Linux)
 Name:		linux_logo
 Version:	4.14
 Release:	1
@@ -20,16 +20,16 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 linux_logo shows a logo in ASCII with some system information.
 
-%description -l es
-Este paquete contiene el tux, pingüino mascota del Linux.
+%description -l es.UTF-8
+Este paquete contiene el tux, pingÃ¼ino mascota del Linux.
 
-%description -l pl
+%description -l pl.UTF-8
 linux_logo pokazuje logo Linuksa w ASCII wraz z pewnymi informacjami o
-systemie (wersja kernela, rodzaj procesora itp.). ¦wietnie nadaje siê
-jako generator ekranów powitalnych przed zalogowaniem siê u¿ytkownika.
+systemie (wersja kernela, rodzaj procesora itp.). Åšwietnie nadaje siÄ™
+jako generator ekranÃ³w powitalnych przed zalogowaniem siÄ™ uÅ¼ytkownika.
 
-%description -l pt_BR
-Este pacote contém o tux, pingüim mascote do Linux.
+%description -l pt_BR.UTF-8
+Este pacote contÃ©m o tux, pingÃ¼im mascote do Linux.
 
 %prep
 %setup -q
