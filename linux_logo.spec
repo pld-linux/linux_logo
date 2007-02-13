@@ -1,7 +1,7 @@
 Summary:	Program that shows nice ascii logo
-Summary(es.UTF-8):   Tux en ASCII (Pingüino del Linux)
-Summary(pl.UTF-8):   Program pokazujący ładne logo Linuksa w ASCII
-Summary(pt_BR.UTF-8):   Tux em ASCII (Pingüim do Linux)
+Summary(es.UTF-8):	Tux en ASCII (Pingüino del Linux)
+Summary(pl.UTF-8):	Program pokazujący ładne logo Linuksa w ASCII
+Summary(pt_BR.UTF-8):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	4.14
 Release:	1
