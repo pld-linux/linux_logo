@@ -3,12 +3,12 @@ Summary(es.UTF-8):	Tux en ASCII (Pingüino del Linux)
 Summary(pl.UTF-8):	Program pokazujący ładne logo Linuksa w ASCII
 Summary(pt_BR.UTF-8):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
-Version:	4.14
+Version:	4.16
 Release:	1
 License:	GPL
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
-# Source0-md5:	5eeccebefff7416698dcbaebbb19cb87
+# Source0-md5:	854429725a1ec35d93cde575ae173efe
 Patch0:		%{name}-pld.patch
 Patch1:		%{name}-quote_logo_backslashes.patch
 Patch2:		%{name}-bogus_locale.patch
