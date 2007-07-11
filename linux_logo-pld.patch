@@ -1,19 +1,5 @@
-diff -Nur linux_logo-3.9b2.orig/logo_config linux_logo-3.9b2/logo_config
---- linux_logo-3.9b2.orig/logo_config	Sun Mar  4 22:55:55 2001
-+++ linux_logo-3.9b2/logo_config	Mon Mar 26 20:48:07 2001
-@@ -1,2 +1,9 @@
-+./logos/distributions/pld.logo
- ./logos/banner.logo
- ./logos/classic.logo
-+./logos/distributions/debian.logo
-+./logos/distributions/debian-old.logo
-+./logos/distributions/slackware.logo
-+./logos/distributions/suse.logo
-+./logos/alternate_oses/aix.logo
-+./logos/alternate_oses/irix.logo
-diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/logos/distributions/pld.logo
---- linux_logo-3.9b2.orig/logos/distributions/pld.logo	Thu Jan  1 01:00:00 1970
-+++ linux_logo-3.9b2/logos/distributions/pld.logo	Mon Mar 26 20:46:50 2001
+--- linux_logo-5.01.orig/logos/distributions/pld.logo	Thu Jan  1 01:00:00 1970
++++ linux_logo-5.01/logos/distributions/pld.logo	Mon Mar 26 20:46:50 2001
 @@ -0,0 +1,39 @@
 +# PLD logo by Michal Zawalich <michuz@pld-linux.org>
 +
@@ -21,7 +7,7 @@ diff -Nur linux_logo-3.9b2.orig/logos/distributions/pld.logo linux_logo-3.9b2/lo
 +SYSINFO_POSITION bottom
 +
 +DESCRIPTION_STRING PLD Linux banner
-+
++NAME pld
 +
 +BEGIN_ASCII_LOGO
 +                               _______      ___          _______              

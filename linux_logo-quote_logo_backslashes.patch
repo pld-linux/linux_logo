@@ -8,23 +8,22 @@
         int center_sysinfo;
         char *user_text;
         char *format;
---- linux_logo-4.04/linux_logo.c.orig	Fri Aug  9 18:50:49 2002
-+++ linux_logo-4.04/linux_logo.c	Sat Aug 24 20:43:50 2002
-@@ -196,6 +196,7 @@
+--- linux_logo-5.01/linux_logo.c.orig	2007-07-09 18:34:18.000000000 +0200
++++ linux_logo-5.01/linux_logo.c	2007-07-11 21:56:07.894370157 +0200
+@@ -102,6 +102,7 @@
      settings->display_sysinfo_only=0;
      settings->display_usertext=0;
      settings->custom_format=0;
-+    settings->quote_logo_backslashes=0;		    /* Defaults to No   */
++    settings->quote_logo_backslashes=0;
      settings->center_sysinfo=1;
-     settings->user_text = NULL;  /* Change this and display_usertext to *\
-                                  \*        have a default message       */
-@@ -236,12 +237,14 @@
+     settings->user_text[0]=0;
+     settings->format[0]=0;
+@@ -125,11 +126,13 @@
+ }
  
- 
- 
--char *print_line(char *string)
-+char *print_line(char *string, struct linux_logo_info_type *settings)
- {
+    /* Prints a string, but stops at a newline or end of string */
+-static char *print_line(char *string) {
++static char *print_line(char *string, struct linux_logo_info_type *settings) {
  
      char *temp_st=string;
  
@@ -34,7 +33,7 @@
         putchar(*temp_st);
         temp_st++;
      }
-@@ -533,7 +536,7 @@
+@@ -516,7 +519,7 @@
         if (settings->banner_mode) { /* Banner mode */
            for(i=0;i<ysize;i++) {
               shift_right((settings->width-80)/2,settings->plain_ascii);
@@ -43,13 +42,13 @@
               printf("\n");
  	  }
            if (!settings->display_logo_only) printf("\n");
-@@ -550,14 +553,14 @@
-   
+@@ -533,14 +536,14 @@
+ 
  	  for(i=0;i<7;i++) {
               shift_right(settings->offset,settings->plain_ascii);
 -             string_point=print_line(string_point);
 +             string_point=print_line(string_point, settings);
- 	     printf("\n"); 
+ 	     printf("\n");
  	  }
  
               /* The next lines can have cpuinfo after them */
@@ -58,22 +57,14 @@
 -             string_point=print_line(string_point);
 +             string_point=print_line(string_point, settings);
               shift_right(2,settings->plain_ascii);
-              if (print_sysinfo(i-7,temp_string,settings)!=1) {
- 	        if (!settings->plain_ascii) ansi_print("^[[1;37;40m");
-@@ -737,7 +740,7 @@
-              /*******************************************************/
-        
-        while ((c = getopt (*custom_argc, custom_argv,"D:F:L:"
--			           "a::b::c::de:fghiklno:pst:uvw:y"))!=-1) {
-+			           "a::b::c::de:fghiklno:pqst:uvw:y"))!=-1) {
-           switch (c) {
- 	     case 'a': settings.plain_ascii=1; break;
- 	     case 'b': settings.banner_mode=1; break;
-@@ -813,6 +816,7 @@
- 	               if ( endptr == optarg ) help_message(argv[0], 1);
- 	               break;
- 	     case 'p': settings.preserve_xy=1; break;
-+	     case 'q': settings.quote_logo_backslashes=1; break;
- 	     case 's': settings.skip_bogomips=1; break;
- 	     case 't': 
- 	               settings.display_usertext=1;
+              if (i-7<sysinfo_length) {
+ 	        if (!settings->plain_ascii) printf("\033[1;37;40m");
+@@ -862,6 +865,8 @@
+ 	            break;
+ 	  case 'p': settings->preserve_xy=1;
+ 	            break;
++	  case 'q': settings->quote_logo_backslashes=1;
++		    break;
+ 	  case 's': settings->skip_bogomips=1;
+ 	            break;
+ 	  case 't': argument=get_arg(&index,argc,argv);
