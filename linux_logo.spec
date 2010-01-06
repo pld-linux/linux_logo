@@ -12,6 +12,7 @@ Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.g
 Patch0:		%{name}-quote_logo_backslashes.patch
 URL:		http://www.deater.net/weave/vmwprod/linux_logo/
 BuildRequires:	gettext-devel
+BuildRequires:	which
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
