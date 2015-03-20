@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Program pokazujący ładne logo Linuksa w ASCII
 Summary(pt_BR.UTF-8):	Tux em ASCII (Pingüim do Linux)
 Name:		linux_logo
 Version:	5.11
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Terminal
 Source0:	http://www.deater.net/weave/vmwprod/linux_logo/%{name}-%{version}.tar.gz
