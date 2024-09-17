@@ -1,41 +1,41 @@
---- linux_logo-4.04/linux_logo.h.orig	Sun Jul 14 20:40:59 2002
-+++ linux_logo-4.04/linux_logo.h	Sat Aug 24 20:41:53 2002
-@@ -15,6 +15,7 @@
+--- linux_logo-6.01/linux_logo.h.orig	2024-09-17 18:54:22.702840807 +0200
++++ linux_logo-6.01/linux_logo.h	2024-09-17 18:54:58.089315769 +0200
+@@ -15,6 +15,7 @@ struct linux_logo_info_type {
         int display_usertext;
         int custom_format;
         int pretty_output;
 +       int quote_logo_backslashes;
         int center_sysinfo;
-        char *user_text;
-        char *format;
---- linux_logo-5.02/linux_logo.c.orig	2007-07-31 17:25:16.000000000 +0200
-+++ linux_logo-5.02/linux_logo.c	2007-08-12 18:39:15.984510248 +0200
-@@ -102,6 +102,7 @@
-     settings->display_sysinfo_only=0;
-     settings->display_usertext=0;
-     settings->custom_format=0;
-+    settings->quote_logo_backslashes=0;
-     settings->center_sysinfo=1;
-     settings->user_text[0]=0;
-     settings->format[0]=0;
-@@ -125,13 +126,15 @@
+        char user_text[BUFSIZ];
+        char format[BUFSIZ];
+--- linux_logo-6.01/linux_logo.c.orig	2022-07-12 16:43:32.000000000 +0200
++++ linux_logo-6.01/linux_logo.c	2024-09-17 18:56:07.738938444 +0200
+@@ -102,6 +102,7 @@ static void setup_info(struct linux_logo
+ 	settings->display_sysinfo_only=0;
+ 	settings->display_usertext=0;
+ 	settings->custom_format=0;
++	settings->quote_logo_backslashes=0;
+ 	settings->center_sysinfo=1;
+ 	settings->user_text[0]=0;
+ 	settings->format[0]=0;
+@@ -125,13 +126,15 @@ static void shift_right(int shift,int pl
  }
  
-    /* Prints a string, but stops at a newline or end of string */
+ 	/* Prints a string, but stops at a newline or end of string */
 -static char *print_line(char *string) {
 +static char *print_line(char *string, struct linux_logo_info_type *settings) {
  
-     char *temp_st=string;
-    
-     if (temp_st==NULL) return NULL;
+ 	char *temp_st=string;
  
-     while ((*temp_st!='\n') && (*temp_st!='\0')) {
-+       if('\\' == *temp_st && settings->quote_logo_backslashes)
-+         putchar('\\');
-        putchar(*temp_st);
-        temp_st++;
-     }
-@@ -518,7 +521,7 @@
+ 	if (temp_st==NULL) return NULL;
+ 
+ 	while ((*temp_st!='\n') && (*temp_st!='\0')) {
++		if('\\' == *temp_st && settings->quote_logo_backslashes)
++			putchar('\\');
+ 		putchar(*temp_st);
+ 		temp_st++;
+ 	}
+@@ -565,7 +568,7 @@ static void draw_logo(struct logo_info *
         if (settings->banner_mode) { /* Banner mode */
            for(i=0;i<ysize;i++) {
               shift_right((settings->width-80)/2,settings->plain_ascii);
@@ -44,7 +44,7 @@
               printf("\n");
  	  }
            if (!settings->display_logo_only) printf("\n");
-@@ -535,14 +538,14 @@
+@@ -582,14 +585,14 @@ static void draw_logo(struct logo_info *
  
  	  for(i=0;i<7;i++) {
               shift_right(settings->offset,settings->plain_ascii);
@@ -61,7 +61,7 @@
               shift_right(2,settings->plain_ascii);
               if (i-7<sysinfo_length) {
  	        if (!settings->plain_ascii) printf("\033[1;37;40m");
-@@ -864,6 +867,8 @@
+@@ -922,6 +925,8 @@ static void parse_command_line(struct li
  	            break;
  	  case 'p': settings->preserve_xy=1;
  	            break;
