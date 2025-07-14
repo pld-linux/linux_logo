@@ -31,7 +31,7 @@ Este pacote contém o tux, pingüim mascote do Linux.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 echo 'logos/distributions/pld.logo' > logo_config
 find logos -type f -a -not -name 'pld.logo' >> logo_config
